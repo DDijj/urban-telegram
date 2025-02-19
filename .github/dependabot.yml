@@ -9,3 +9,5 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+ ,
+ "postCreateCommand": "echo '# Writing code upon codespace creation!'  >> codespace.md"
