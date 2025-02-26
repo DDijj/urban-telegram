@@ -6,9 +6,14 @@ name: Step 0, Welcome
 # This will run every time we create push a commit to `main`.
 # Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
+  #對於main branch建立Branch與Pull Request時觸發workflow
   push:
     branches: 
       - main
+  pull_request:
+    branches:
+      - main
+      #允許你從Action頁簽上手動執行worklow
   workflow_dispatch:
 
 # Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
@@ -22,7 +27,9 @@ jobs:
   get_current_step:
     name: Check current step number
     runs-on: ubuntu-latest
+    # 作為 Job 的一部分，Steps 會循序執行一連串的動作
     steps:
+    # 在 $GITHUB_WORKSPACE 下簽出您的存儲庫，以便您的工作可以訪問它
       - name: Checkout
         uses: actions/checkout@v4
       - id: get_step
