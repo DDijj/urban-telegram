@@ -31,7 +31,7 @@ jobs:
     steps:
     # 在 $GITHUB_WORKSPACE 下簽出您的存儲庫，以便您的工作可以訪問它
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - id: get_step
         run: |
           echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
@@ -57,7 +57,7 @@ jobs:
     steps:
       # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0 # Let's get all the branches.
 
